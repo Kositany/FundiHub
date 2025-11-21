@@ -1,0 +1,38 @@
+{
+  "name": "fundihub-pwa",
+  "version": "2.0.0",
+  "description": "FundiHub PWA - Complete platform connecting fundis with customers",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sw": "vite-plugin-pwa"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
+    "@vueuse/core": "^10.7.2",
+    "appwrite": "^18.2.0",
+    "chart.js": "^4.4.1",
+    "date-fns": "^3.3.1",
+    "gsap": "^3.13.0",
+    "pinia": "^2.1.7",
+    "swiper": "^11.0.5",
+    "vee-validate": "^4.12.4",
+    "vue": "^3.4.21",
+    "vue-chartjs": "^5.3.0",
+    "vue-router": "^4.2.5",
+    "vue-toastification": "^2.0.0-rc.5",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.4.0",
+    "vite-plugin-pwa": "^0.21.0"
+  }
+}

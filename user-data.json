@@ -1,0 +1,7 @@
+{
+  "email": "user@fundihub.com",
+  "name": "John Doe", 
+  "userType": "user",
+  "isVerified": true,
+  "onboardingCompleted": true
+}

@@ -1,0 +1,373 @@
+{
+    "projectId": "68ab76e6001074aa3acb",
+    "endpoint": "https://nyc.cloud.appwrite.io/v1",
+    "projectName": "fundiHub",
+    "settings": {
+        "services": {
+            "account": true,
+            "avatars": true,
+            "databases": true,
+            "locale": true,
+            "health": true,
+            "storage": true,
+            "teams": true,
+            "users": true,
+            "sites": true,
+            "functions": true,
+            "graphql": true,
+            "messaging": true
+        },
+        "auth": {
+            "methods": {
+                "jwt": true,
+                "phone": true,
+                "invites": true,
+                "anonymous": true,
+                "email-otp": true,
+                "magic-url": true,
+                "email-password": true
+            },
+            "security": {
+                "duration": 31536000,
+                "limit": 0,
+                "sessionsLimit": 10,
+                "passwordHistory": 0,
+                "passwordDictionary": false,
+                "personalDataCheck": false,
+                "sessionAlerts": false,
+                "mockNumbers": []
+            }
+        }
+    },
+    "databases": [
+        {
+            "$id": "fundihub-db",
+            "name": "FundiHub Database",
+            "enabled": true
+        }
+    ],
+    "collections": [
+        {
+            "$id": "users",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Users",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [
+                {
+                    "key": "email",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "name",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "userType",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 20,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "isVerified",
+                    "type": "boolean",
+                    "required": true,
+                    "array": false,
+                    "default": null
+                },
+                {
+                    "key": "onboardingCompleted",
+                    "type": "boolean",
+                    "required": true,
+                    "array": false,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "fundis",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Fundis",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [
+                {
+                    "key": "userId",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 36,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "specialization",
+                    "type": "string",
+                    "required": true,
+                    "array": true,
+                    "size": 100,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "experience",
+                    "type": "integer",
+                    "required": true,
+                    "array": false,
+                    "min": 0,
+                    "max": 50,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "businesses",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Businesses",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [
+                {
+                    "key": "userId",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 36,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "name",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 100,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "description",
+                    "type": "string",
+                    "required": false,
+                    "array": false,
+                    "size": 1000,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "website",
+                    "type": "string",
+                    "required": false,
+                    "array": false,
+                    "size": 200,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "industry",
+                    "type": "string",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "verified",
+                    "type": "boolean",
+                    "required": false,
+                    "array": false,
+                    "default": false
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "projects",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Projects",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [
+                {
+                    "key": "title",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "description",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 2000,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "clientId",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 36,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 20,
+                    "default": null,
+                    "encrypt": false
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "bookings",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Bookings",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [],
+            "indexes": []
+        },
+        {
+            "$id": "reviews",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Reviews",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [],
+            "indexes": []
+        },
+        {
+            "$id": "messages",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Messages",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [],
+            "indexes": []
+        },
+        {
+            "$id": "notifications",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Notifications",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [],
+            "indexes": []
+        },
+        {
+            "$id": "portfolios",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Portfolios",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [],
+            "indexes": []
+        },
+        {
+            "$id": "services",
+            "$permissions": [],
+            "databaseId": "fundihub-db",
+            "name": "Services",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [],
+            "indexes": []
+        }
+    ],
+    "buckets": [
+        {
+            "$id": "avatars",
+            "$permissions": [],
+            "fileSecurity": true,
+            "name": "User Avatars",
+            "enabled": true,
+            "maximumFileSize": 5000000,
+            "allowedFileExtensions": [],
+            "compression": "none",
+            "encryption": true,
+            "antivirus": true
+        },
+        {
+            "$id": "portfolios",
+            "$permissions": [],
+            "fileSecurity": true,
+            "name": "Portfolio Images",
+            "enabled": true,
+            "maximumFileSize": 10000000,
+            "allowedFileExtensions": [],
+            "compression": "none",
+            "encryption": true,
+            "antivirus": true
+        },
+        {
+            "$id": "documents",
+            "$permissions": [],
+            "fileSecurity": true,
+            "name": "Documents",
+            "enabled": true,
+            "maximumFileSize": 20000000,
+            "allowedFileExtensions": [],
+            "compression": "none",
+            "encryption": true,
+            "antivirus": true
+        },
+        {
+            "$id": "project-images",
+            "$permissions": [],
+            "fileSecurity": true,
+            "name": "Project Images",
+            "enabled": true,
+            "maximumFileSize": 15000000,
+            "allowedFileExtensions": [],
+            "compression": "none",
+            "encryption": true,
+            "antivirus": true
+        },
+        {
+            "$id": "attachments",
+            "$permissions": [],
+            "fileSecurity": true,
+            "name": "Message Attachments",
+            "enabled": true,
+            "maximumFileSize": 25000000,
+            "allowedFileExtensions": [],
+            "compression": "none",
+            "encryption": true,
+            "antivirus": true
+        }
+    ]
+}

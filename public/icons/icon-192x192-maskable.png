@@ -1,0 +1,8 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Safe area background -->
+  <rect width="192" height="192" rx="38" fill="#FE433F"/>
+  <!-- Smaller logo with more padding for maskable -->
+  <path d="M96 58L129 82v62H115v-29H77v29H63V82L96 58z" fill="white"/>
+  <circle cx="79" cy="99" r="4" fill="#FE433F"/>
+  <circle cx="113" cy="99" r="4" fill="#FE433F"/>
+</svg>

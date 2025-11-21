@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Appwrite Test</title>
+</head>
+<body>
+    <h1>Direct Appwrite Connection Test</h1>
+    <button onclick="testConnection()">Test Connection</button>
+    <div id="results"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@18.2.0"></script>
+    <script>
+        function log(message) {
+            document.getElementById('results').innerHTML += '<p>' + message + '</p>';
+            console.log(message);
+        }
+
+        async function testConnection() {
+            document.getElementById('results').innerHTML = '';
+            
+            try {
+                log('🔍 Testing direct connection to Appwrite...');
+                
+                const { Client, Account } = Appwrite;
+                
+                const client = new Client()
+                    .setEndpoint('https://fra.cloud.appwrite.io/v1')
+                    .setProject('68aab77c0025a66bc6e6');
+
+                const account = new Account(client);
+
+                log('📡 Sending ping to Appwrite servers...');
+                
+                // Test basic connection
+                try {
+                    const user = await account.get();
+                    log('✅ Connection successful - User found: ' + user.email);
+                } catch (error) {
+                    if (error.code === 401) {
+                        log('✅ Connection successful - No user session (this is normal)');
+                        log('✅ Appwrite is reachable and responding correctly');
+                    } else {
+                        log('❌ Connection failed: ' + error.message);
+                        log('❌ Error code: ' + error.code);
+                        log('❌ Error type: ' + error.type);
+                        
+                        if (error.code === 403) {
+                            log('🔧 This suggests a platform configuration issue');
+                            log('🔧 Check that localhost is added as a web platform');
+                        }
+                    }
+                }
+            } catch (error) {
+                log('❌ Critical error: ' + error.message);
+                console.error('Full error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

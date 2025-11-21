@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Primary Meta Tags -->
+  <title>FundiHub - Find Trusted Fundis, Get Instant Quotes</title>
+  <meta name="title" content="FundiHub - Find Trusted Fundis, Get Instant Quotes">
+  <meta name="description" content="Connect with verified fundis for all your home and business needs. Get instant quotes, compare prices, and hire trusted professionals.">
+  <meta name="keywords" content="fundis, contractors, home services, quotes, repairs, construction, handyman">
+  <meta name="author" content="FundiHub">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fundihub.app/">
+  <meta property="og:title" content="FundiHub - Find Trusted Fundis, Get Instant Quotes">
+  <meta property="og:description" content="Connect with verified fundis for all your home and business needs. Get instant quotes, compare prices, and hire trusted professionals.">
+  <meta property="og:image" content="/icons/icon-512x512.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://fundihub.app/">
+  <meta property="twitter:title" content="FundiHub - Find Trusted Fundis, Get Instant Quotes">
+  <meta property="twitter:description" content="Connect with verified fundis for all your home and business needs. Get instant quotes, compare prices, and hire trusted professionals.">
+  <meta property="twitter:image" content="/icons/icon-512x512.png">
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="background-color" content="#ffffff">
+  <meta name="display" content="standalone">
+  <meta name="orientation" content="portrait-primary">
+  
+  <!-- Apple PWA Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FundiHub">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="/icons/icon-128x128.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png">
+  
+  <!-- Microsoft PWA Meta Tags -->
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/icons/icon-192x192.png" as="image" type="image/png">
+  
+  <!-- Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+  
+  <!-- PWA Installation Script -->
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('[PWA] SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('[PWA] SW registration failed: ', registrationError);
+          });
+      });
+    }
+    
+    // Handle PWA install prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('[PWA] beforeinstallprompt fired');
+      deferredPrompt = e;
+    });
+    
+    // iOS viewport height fix
+    function setViewportHeight() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', () => {
+      setTimeout(setViewportHeight, 100);
+    });
+  </script>
+</body>
+</html>

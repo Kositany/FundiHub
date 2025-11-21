@@ -1,0 +1,6 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="30" cy="30" r="25" fill="#FE433F"/>
+  <path d="M20 35L25 30L35 40L40 35" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="65" y="25" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#1F2937">FundiHub</text>
+  <text x="65" y="40" font-family="Inter, sans-serif" font-size="10" fill="#6B7280">Find • Connect • Build</text>
+</svg>

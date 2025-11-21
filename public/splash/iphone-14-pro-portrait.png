@@ -1,0 +1,18 @@
+<svg width="393" height="852" viewBox="0 0 393 852" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="393" height="852" fill="#FE433F"/>
+  
+  <!-- Centered FundiHub Logo -->
+  <g transform="translate(196.5, 426)">
+    <!-- House icon centered -->
+    <g transform="translate(-64, -64)">
+      <path d="M64 19L96 42v51H76v-26H52v26H32V42L64 19z" fill="white"/>
+      <circle cx="45" cy="58" r="4" fill="#FE433F"/>
+      <circle cx="83" cy="58" r="4" fill="#FE433F"/>
+    </g>
+    
+    <!-- FundiHub text below -->
+    <text x="0" y="100" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="24" font-weight="bold">FundiHub</text>
+    <text x="0" y="130" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, sans-serif" font-size="14">Find • Connect • Build</text>
+  </g>
+</svg>
